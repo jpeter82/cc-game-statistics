@@ -1,6 +1,7 @@
 
+# import math
+
 # Report functions
-import math
 
 
 def read_from_file(file_name, separator='\t'):
@@ -27,6 +28,10 @@ def read_from_file(file_name, separator='\t'):
 
     result.extend([game_list, error])
     return result
+
+
+def round_up(number):
+    return int(-(-number // 1))
 
 
 def get_most_played(file_name):
@@ -125,7 +130,8 @@ def get_date_avg(file_name):
             if len(years) == 0:
                 result = 'Average cannot be calculated (because of division by zero).'
             else:
-                result = math.ceil(sum(years) / len(years))
+                result = round_up(sum(years) / len(years))
+                # result = math.ceil(sum(years) / len(years))
     else:
         result = game_list[1][0]
 
