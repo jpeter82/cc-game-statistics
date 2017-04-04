@@ -23,9 +23,10 @@ def write_to_file(source_data, report_file, title):
             f.write(str(reports.get_selling_avg(source_data)) + '\n')
             f.write(str(reports.count_longest_title(source_data)) + '\n')
             f.write(str(reports.get_date_avg(source_data)) + '\n')
-            f.write(str(reports.get_game(source_data, title)) + '\n')
-            f.write(str(reports.count_grouped_by_genre(source_data)) + '\n')
-            f.write(str(reports.get_date_ordered(source_data)))
+            f.write(', '.join(str(item) for item in reports.get_game(source_data, title)) + '\n')
+            f.write(', '.join((str(key) + ': ' + str(value)) for key, value
+                    in reports.count_grouped_by_genre(source_data).items()) + '\n')
+            f.write(str(', '.join(reports.get_date_ordered(source_data))))
     except:
         result = False
         raise
@@ -36,7 +37,8 @@ def write_to_file(source_data, report_file, title):
 
 
 def main():
-    print(write_to_file(SOURCE_DATA, REPORT_FILE, TITLE))
+    # print(write_to_file(SOURCE_DATA, REPORT_FILE, TITLE))
+    write_to_file(SOURCE_DATA, REPORT_FILE, TITLE)
 
 if __name__ == '__main__':
     main()

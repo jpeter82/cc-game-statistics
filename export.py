@@ -25,8 +25,8 @@ def write_to_file(source_data, report_file, year, genre, title):
             f.write(str(reports.get_latest(source_data)) + '\n')
             f.write(str(reports.count_by_genre(source_data, genre)) + '\n')
             f.write(str(reports.get_line_number_by_title(source_data, title)) + '\n')
-            f.write(str(reports.sort_abc(source_data)) + '\n')
-            f.write(str(reports.get_genres(source_data)) + '\n')
+            f.write(str(', '.join(reports.sort_abc(source_data))) + '\n')
+            f.write(str(', '.join(reports.get_genres(source_data))) + '\n')
             f.write(str(reports.when_was_top_sold_fps(source_data)))
     except:
         result = False
@@ -38,7 +38,8 @@ def write_to_file(source_data, report_file, year, genre, title):
 
 
 def main():
-    print(write_to_file(SOURCE_DATA, REPORT_FILE, YEAR, GENRE, TITLE))
+    # print(write_to_file(SOURCE_DATA, REPORT_FILE, YEAR, GENRE, TITLE))
+    write_to_file(SOURCE_DATA, REPORT_FILE, YEAR, GENRE, TITLE)
 
 if __name__ == '__main__':
     main()
