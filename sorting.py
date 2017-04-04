@@ -133,6 +133,18 @@ def insertion_sort_ci(List, order=True, ci=True):
     return List
 
 
+# The next two functions are here only if I cannot use the oprator module
+# If you want to use it:
+# replace this: op = operator.lt if order else operator.gt
+# with this: op = less_xy if order else greater_xy
+def greater_xy(x, y):
+    return x > y
+
+
+def less_xy(x, y):
+    return x < y
+
+
 def main():
     pass
 
