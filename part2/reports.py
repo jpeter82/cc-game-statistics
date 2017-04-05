@@ -1,5 +1,6 @@
 
 # import math
+import sorting
 
 # Report functions
 
@@ -44,8 +45,11 @@ def get_most_played(file_name):
 
     if game_list[0] is not False:
         try:
-            result = sorted([[float(line[1]), line_num + 1, line[0]] for line_num, line in enumerate(game_list[0])],
-                            key=lambda x: (x[0], -x[1]), reverse=True)[0][2]
+            # result = sorted([[float(line[1]), line_num + 1, line[0]] for line_num, line in enumerate(game_list[0])],
+            #                 key=lambda x: (x[0], -x[1]), reverse=True)[0][2]
+            result = sorting.bubble_sort_nested_multi([[float(line[1]), line_num + 1, line[0]]
+                                                      for line_num, line in enumerate(game_list[0])],
+                                                      [False, True])[0][2]
         except:
             result = 'At least one of the columns contain an invalid format, please check the source file.'
     else:
@@ -106,7 +110,8 @@ def count_longest_title(file_name):
     game_list = read_from_file(file_name)
 
     if game_list[0] is not False:
-        result = sorted([[line[0], len(line[0])] for line in game_list[0]], key=lambda x: x[1], reverse=True)[0][1]
+        # result = sorted([[len(line[0]), line[0]] for line in game_list[0]], key=lambda x: x[0], reverse=True)[0][0]
+        result = sorting.bubble_sort_nested([[len(line[0]), line[0]] for line in game_list[0]], False)[0][0]
     else:
         result = game_list[1][0]
 
@@ -187,9 +192,13 @@ def get_date_ordered(file_name):
 
     if game_list[0] is not False:
         try:
-            result = [item[1] for item in
-                      sorted([[int(line[2]), line[0]] for line in game_list[0]],
-                             key=lambda x: (-x[0], str(x[1]).lower()))]
+            # result = [item[1] for item in
+            #           sorted([[int(line[2]), line[0]] for line in game_list[0]],
+            #                  key=lambda x: (-x[0], str(x[1]).lower()))]
+            names_dict = {str.lower(line[0]): line[0] for line in game_list[0]}
+            pre_result = [item[1] for item in sorting.bubble_sort_nested_multi([[int(line[2]), str.lower(line[0])]
+                          for line in game_list[0]], [False, True])]
+            result = [names_dict[title] for title in pre_result]
         except:
             result = ('At least one of the columns contain an invalid format (probably years), \
                         please check the source file.')

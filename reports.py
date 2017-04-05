@@ -144,10 +144,7 @@ def sort_abc(file_name):
     game_list = read_from_file(file_name)
 
     if game_list[0] is not False:
-        # Sorted soulution
         # result = sorted([line[0] for line in game_list[0]], key=lambda x: x.lower())
-
-        # Sorting my own way
         result = sorting.bubble_sort_ci([line[0] for line in game_list[0]])
     else:
         result = game_list[1][0]
@@ -164,7 +161,8 @@ def get_genres(file_name):
     game_list = read_from_file(file_name)
 
     if game_list[0] is not False:
-        result = sorted(set(line[3] for line in game_list[0]), key=lambda x: x.lower())
+        # result = sorted(set(line[3] for line in game_list[0]), key=lambda x: x.lower())
+        result = sorting.bubble_sort_ci(list(set(line[3] for line in game_list[0])))
     else:
         result = game_list[1][0]
 
@@ -181,8 +179,10 @@ def when_was_top_sold_fps(file_name):
 
     if game_list[0] is not False:
         try:
-            result = sorted([(float(line[1]), int(line[2])) for line in game_list[0]
-                            if line[3] == "First-person shooter"], key=lambda x: x[0], reverse=True)[0][1]
+            # result = sorted([(float(line[1]), int(line[2])) for line in game_list[0]
+            #                 if line[3] == "First-person shooter"], key=lambda x: x[0], reverse=True)[0][1]
+            result = sorting.bubble_sort_nested([(float(line[1]), int(line[2])) for line in game_list[0]
+                                                if line[3] == "First-person shooter"], False)[0][1]
         except:
             result = ("Unexpected error occured. Either there is no First-person shooter category or \
 at least one value is invalid in the 'year' column or in the 'total copies sold' column.")

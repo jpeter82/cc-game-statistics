@@ -55,6 +55,29 @@ def bubble_sort_nested(List, order=True):
     return List
 
 
+def bubble_sort_nested_multi(List, order=[True, True]):
+    '''
+    Sorts nested lists by 1st then 2nd element of list of lists.
+    It also supports sorting in ascending/descending order.
+        @param List list The list to be sorted
+        @param order bool True if ascending, False if descending
+        @return list The sorted list
+    '''
+    op1 = operator.gt if order[0] else operator.lt
+    op2 = operator.gt if order[1] else operator.lt
+    for i in range(len(List) - 1):
+        for j in range(len(List) - 1):
+            if op1(List[j][0], List[j + 1][0]):
+                temp1 = List[j]
+                List[j] = List[j + 1]
+                List[j + 1] = temp1
+            if List[j][0] == List[j + 1][0] and op2(List[j][1], List[j + 1][1]):
+                temp2 = List[j]
+                List[j] = List[j + 1]
+                List[j + 1] = temp2
+    return List
+
+
 def selection_sort(List):
     '''
     Sorts the given List. Repeatedly find the smallest element in the unsorted part of the array
