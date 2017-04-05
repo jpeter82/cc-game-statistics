@@ -194,7 +194,7 @@ def delete_content(file_name):
     return result
 
 
-def main():
+def export_reports():
     # write_to_file_all(SOURCE_DATA, REPORT_FILE, YEAR, GENRE, TITLE)
 
     if delete_content(REPORT_FILE):
@@ -216,6 +216,10 @@ def main():
     else:
         print('An error occured while deleting previous contents of the report file. \
 Please close the file and try again.')
+
+
+def main():
+    export_reports()
 
 if __name__ == '__main__':
     main()

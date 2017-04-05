@@ -77,8 +77,8 @@ def report_when_was_top_sold_fps(filename):
     print('\nRelease date of the top sold "First-person shooter" game:', reports.when_was_top_sold_fps(filename))
 
 
-def main():
-    # Report #1
+def print_reports():
+
     print('\nREPORT #1 for Judy')
     print('------------------')
     report_count_games(SOURCE_FILE)
@@ -91,6 +91,10 @@ def main():
     report_when_was_top_sold_fps(SOURCE_FILE)
     print('\n----------------')
     print('END OF REPORT #1')
+
+
+def main():
+    print_reports()
 
 if __name__ == '__main__':
     main()
