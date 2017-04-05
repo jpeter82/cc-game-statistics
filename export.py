@@ -212,7 +212,7 @@ def export_reports():
         if all(check_result):
             print('Reports exported successfully!')
         else:
-            print('An error occured. Please check your source file.')
+            print('An error occured. Please check your source file or you entered a wrong file name for output.')
     else:
         print('An error occured while deleting previous contents of the report file. \
 Please close the file and try again.')

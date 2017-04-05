@@ -1,5 +1,6 @@
 
 # Global variables for package 1 reports
+
 # Name of the source file
 source = 'game_stat.txt'
 # Year for question 2
