@@ -65,7 +65,6 @@ def report_count_grouped_by_genre(filename):
     '''
     games_by_genre = reports.count_grouped_by_genre(filename)
     print('\nGames grouped by genre:')
-    # ternary operator needs to be written on 2 lines because of pep8 :(
     [print(game, count) for game, count in games_by_genre.items()] if isinstance(games_by_genre,
                                                                                  dict) else print(games_by_genre)
 
@@ -81,7 +80,7 @@ def report_get_date_ordered(filename):
 
 
 def main():
-    # Report #2
+
     print('\nREPORT #2 for Judy')
     print('------------------')
     report_get_most_played(SOURCE_FILE)

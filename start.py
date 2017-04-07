@@ -1,10 +1,12 @@
 
 
-# start functions
+# program start functions
+
+
 def get_answers():
     '''
     Get user input
-        @return list User's answers
+        @return   list   User's answers
     '''
     is_valid = False
     answers = []
@@ -22,24 +24,24 @@ def get_answers():
             print('You are not allowed to overwrite an important file of the reporting system. \
 Please select another name.')
 
-    # :-)
-    funny1 = input('Enter your email address: ')
-    funny2 = input('Enter your password for your email address: ')
-
     answers.extend([source, year, genre, title, target])
     return answers
 
 
 def get_menu():
-    menu = ['1. Print reports', '2. Export reports', '3. Exit']
+    '''
+    Returns main menu
+        @return   list  Main menu
+    '''
+    menu = ['Print reports', 'Export reports', 'Exit']
     return menu
 
 
 def overwrite_config(user_answers):
     '''
     Overwrite config file.
-        @param user_answers list Set user answers as global variables
-        @return bool True if successful, otherwise False
+        @param    user_answers   list   Set user answers as global variables
+        @return                  bool   True if successful, otherwise False
     '''
     try:
         with open('config.py', 'w', encoding='utf-8') as f:
@@ -76,7 +78,7 @@ def main():
         choice = 0
         while choice != 3:
             print('\nMAIN MENU\n')
-            [print(item) for item in get_menu()]
+            [print('{}. {}'.format(count + 1, item)) for count, item in enumerate(get_menu())]
             print('\n')
 
             try:

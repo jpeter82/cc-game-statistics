@@ -13,10 +13,10 @@ TITLE = config.title
 def write_to_file(source_data, report_file, title):
     '''
     Write package 2 reports to a file.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @param title string Title parameter for inside function
-        @return bool True if successful, otherwise False
+        @param    source_data   string    Name of the file that contains source data
+        @param    report_file   string    Name of the file to be created
+        @param    title         string    Title parameter for inside function
+        @return                 bool      True if successful, otherwise False
     '''
     try:
         with open(report_file, 'w', encoding='utf-8') as f:
@@ -41,10 +41,10 @@ def write_to_file(source_data, report_file, title):
 def append_to_file(source_data, report_file, what):
     '''
     Append report to a file.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @param what string The new line to be appended to the report file
-        @return bool True if successful, otherwise False
+        @param    source_data   string    Name of the file that contains source data
+        @param    report_file   string    Name of the file to be created
+        @param    what          string    The new line to be appended to the report file
+        @return                 bool      True if successful, otherwise False
     '''
     try:
         with open(report_file, 'a', encoding='utf-8') as f:
@@ -60,125 +60,101 @@ def append_to_file(source_data, report_file, what):
 def export_get_most_played(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
-    if append_to_file(source_data, report_file, reports.get_most_played(source_data)):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, reports.get_most_played(source_data)) else False
     return result
 
 
 def export_sum_sold(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
-    if append_to_file(source_data, report_file, reports.sum_sold(source_data)):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, reports.sum_sold(source_data)) else False
     return result
 
 
 def export_get_selling_avg(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string    Name of the file that contains source data
+        @param    report_file   string    Name of the file to be created
+        @return                 bool      True if successful, otherwise False
     '''
-    if append_to_file(source_data, report_file, reports.get_selling_avg(source_data)):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, reports.get_selling_avg(source_data)) else False
     return result
 
 
 def export_count_longest_title(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
-    if append_to_file(source_data, report_file, reports.count_longest_title(source_data)):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, reports.count_longest_title(source_data)) else False
     return result
 
 
 def export_get_date_avg(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
-    if append_to_file(source_data, report_file, reports.get_date_avg(source_data)):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, reports.get_date_avg(source_data)) else False
     return result
 
 
 def export_get_game(source_data, report_file, title):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @param title string Title parameter for inside function
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @param    title         string   Title parameter for inside function
+        @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(str(item) for item in reports.get_game(source_data, title))
-    if append_to_file(source_data, report_file, data):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, data) else False
     return result
 
 
 def export_count_grouped_by_genre(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join((str(key) + ': ' + str(value)) for key, value
                      in reports.count_grouped_by_genre(source_data).items())
-    if append_to_file(source_data, report_file, data):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, data) else False
     return result
 
 
 def export_get_date_ordered(source_data, report_file):
     '''
     Append actual report to report file. Check out reports.py for content of actual report.
-        @param source_data string Name of the file that contains source data
-        @param report_file string Name of the file to be created
-        @return bool True if successful, otherwise False
+        @param    source_data   string   Name of the file that contains source data
+        @param    report_file   string   Name of the file to be created
+        @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(reports.get_date_ordered(source_data))
-    if append_to_file(source_data, report_file, data):
-        result = True
-    else:
-        result = False
+    result = True if append_to_file(source_data, report_file, data) else False
     return result
 
 
 def delete_content(file_name):
     '''
     Delete contents of a file
-        @param file_name string Name of the file of which content will be deleted
-        @result True if successful, otherwise False
+        @param   file_name   string   Name of the file of which content will be deleted
+        @result              bool     True if successful, otherwise False
     '''
     try:
         with open(file_name, "w"):
@@ -192,7 +168,6 @@ def delete_content(file_name):
 
 
 def main():
-    # write_to_file(SOURCE_DATA, REPORT_FILE, TITLE)
 
     if delete_content(REPORT_FILE):
         check_result = []

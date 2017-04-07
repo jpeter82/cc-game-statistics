@@ -78,7 +78,10 @@ def report_when_was_top_sold_fps(filename):
 
 
 def print_reports():
-
+    '''
+    Print out all reports to the screen.
+        @return void
+    '''
     print('\nREPORT #1 for Judy')
     print('------------------')
     report_count_games(SOURCE_FILE)
