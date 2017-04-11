@@ -38,10 +38,9 @@ def write_to_file(source_data, report_file, title):
     return result
 
 
-def append_to_file(source_data, report_file, what):
+def append_to_file(report_file, what):
     '''
     Append report to a file.
-        @param    source_data   string    Name of the file that contains source data
         @param    report_file   string    Name of the file to be created
         @param    what          string    The new line to be appended to the report file
         @return                 bool      True if successful, otherwise False
@@ -64,7 +63,7 @@ def export_get_most_played(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.get_most_played(source_data)) else False
+    result = True if append_to_file(report_file, reports.get_most_played(source_data)) else False
     return result
 
 
@@ -75,7 +74,7 @@ def export_sum_sold(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.sum_sold(source_data)) else False
+    result = True if append_to_file(report_file, reports.sum_sold(source_data)) else False
     return result
 
 
@@ -86,7 +85,7 @@ def export_get_selling_avg(source_data, report_file):
         @param    report_file   string    Name of the file to be created
         @return                 bool      True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.get_selling_avg(source_data)) else False
+    result = True if append_to_file(report_file, reports.get_selling_avg(source_data)) else False
     return result
 
 
@@ -97,7 +96,7 @@ def export_count_longest_title(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.count_longest_title(source_data)) else False
+    result = True if append_to_file(report_file, reports.count_longest_title(source_data)) else False
     return result
 
 
@@ -108,7 +107,7 @@ def export_get_date_avg(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.get_date_avg(source_data)) else False
+    result = True if append_to_file(report_file, reports.get_date_avg(source_data)) else False
     return result
 
 
@@ -121,7 +120,7 @@ def export_get_game(source_data, report_file, title):
         @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(str(item) for item in reports.get_game(source_data, title))
-    result = True if append_to_file(source_data, report_file, data) else False
+    result = True if append_to_file(report_file, data) else False
     return result
 
 
@@ -134,7 +133,7 @@ def export_count_grouped_by_genre(source_data, report_file):
     '''
     data = ', '.join((str(key) + ': ' + str(value)) for key, value
                      in reports.count_grouped_by_genre(source_data).items())
-    result = True if append_to_file(source_data, report_file, data) else False
+    result = True if append_to_file(report_file, data) else False
     return result
 
 
@@ -146,7 +145,7 @@ def export_get_date_ordered(source_data, report_file):
         @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(reports.get_date_ordered(source_data))
-    result = True if append_to_file(source_data, report_file, data) else False
+    result = True if append_to_file(report_file, data) else False
     return result
 
 

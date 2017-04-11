@@ -10,4 +10,4 @@ genre = 'FPS'
 # Title for question 5
 title = 'Populous'
 # Name of the report file that will be created
-target = 'package2.txt'
+target = 'package1.txt'

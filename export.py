@@ -41,10 +41,9 @@ def write_to_file_all(source_data, report_file, year, genre, title):
     return result
 
 
-def append_to_file(source_data, report_file, what):
+def append_to_file(report_file, what):
     '''
     Append report to a file.
-        @param    source_data   string   Name of the file that contains source data
         @param    report_file   string   Name of the file to be created
         @param    what          string   The new line to be appended to the report file
         @return                 bool     True if successful, otherwise False
@@ -67,7 +66,7 @@ def export_count_games(source_data, report_file):
         @param    report_file   string    Name of the file to be created
         @return   bool                    True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.count_games(source_data)) else False
+    result = True if append_to_file(report_file, reports.count_games(source_data)) else False
     return result
 
 
@@ -79,7 +78,7 @@ def export_decide(source_data, report_file, year):
         @param    year          int      Year parameter for inside function
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.decide(source_data, year)) else False
+    result = True if append_to_file(report_file, reports.decide(source_data, year)) else False
     return result
 
 
@@ -90,7 +89,7 @@ def export_get_latest(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.get_latest(source_data)) else False
+    result = True if append_to_file(report_file, reports.get_latest(source_data)) else False
     return result
 
 
@@ -102,7 +101,7 @@ def export_count_by_genre(source_data, report_file, genre):
         @param    genre         string   Genre parameter for inside function
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.count_by_genre(source_data, genre)) else False
+    result = True if append_to_file(report_file, reports.count_by_genre(source_data, genre)) else False
     return result
 
 
@@ -114,8 +113,7 @@ def export_get_line_number_by_title(source_data, report_file, title):
         @param    title         string   Title parameter for inside function
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file,
-                                    reports.get_line_number_by_title(source_data, title)) else False
+    result = True if append_to_file(report_file, reports.get_line_number_by_title(source_data, title)) else False
     return result
 
 
@@ -127,7 +125,7 @@ def export_sort_abc(source_data, report_file):
         @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(reports.sort_abc(source_data))
-    result = True if append_to_file(source_data, report_file, data) else False
+    result = True if append_to_file(report_file, data) else False
     return result
 
 
@@ -139,7 +137,7 @@ def export_get_genres(source_data, report_file):
         @return                 bool     True if successful, otherwise False
     '''
     data = ', '.join(reports.get_genres(source_data))
-    result = True if append_to_file(source_data, report_file, data) else False
+    result = True if append_to_file(report_file, data) else False
     return result
 
 
@@ -150,7 +148,7 @@ def export_when_was_top_sold_fps(source_data, report_file):
         @param    report_file   string   Name of the file to be created
         @return                 bool     True if successful, otherwise False
     '''
-    result = True if append_to_file(source_data, report_file, reports.when_was_top_sold_fps(source_data)) else False
+    result = True if append_to_file(report_file, reports.when_was_top_sold_fps(source_data)) else False
     return result
 
 
